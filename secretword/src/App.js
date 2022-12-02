@@ -1,7 +1,6 @@
 // css
 import './App.css';
 
-
 // react 
 import {useCallback, useEffect , useState } from "react"; 
 
@@ -23,12 +22,25 @@ function App () {
    const [gamesStage, setgameStage] = useState(stage[0].name);   
     const [words] = useState(wordsList); 
       console.log(words);
-     
+  
+  // start the secret word game     
+  const startGame = () => {
+     setgameStage(stage[1].name); 
+  };    
+  // process the latter input
+  const verifyLetter = () => {
+    setgameStage(stage[2].name); 
+  };     
+  // retarts the game 
+  const retry = () => {
+    setgameStage(stage[0].name); 
+  };
+
   return (
     <div className="App">
-      {gamesStage === "start" && <StartScreen/>}
-      {gamesStage === "game" && <Game/>}
-      {gamesStage === "end" && <GameOver/>}
+      {gamesStage === "start" && <StartScreen startGame={startGame}/>}
+      {gamesStage === "game" && <Game verifyLetter={verifyLetter}/>}
+      {gamesStage === "end" && <GameOver retry={retry}/>}
     </div>
   );
 }
