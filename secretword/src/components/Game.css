@@ -1,0 +1,61 @@
+/* titulo */
+
+.game h1 {
+   font-size: 2.5rem;
+}
+
+/* pontuacao */
+
+.points span {
+    font-weight: bold;
+}
+
+/* onde fica a dica das palavras */
+
+.tip span {
+    color: #ecfa00;
+}
+
+/* onde fica as letras lcoalizadas... */
+
+.wordContainer {
+    margin: 1.5em; 
+    padding: 1.5em;
+    border: 20px solid #ecfa00;
+    display: flex;
+}
+
+/* letras e quadrados branquinho onde se localiza o inpys*/ 
+
+.letter, .blankSquare {
+    font-size: 70px;
+    line-height: 1.5;
+    border: 3px solid #000;
+    width: 100px;
+    text-transform: uppercase;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+}
+
+/* o titulo das palavras ...  */
+
+.letterContainer p  {
+    margin-bottom: 1.2rem;
+}
+
+/* letras mandadas para verificar a palavra */ 
+
+.letterContainer form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letterContainer input {
+    height: 50px;
+    width: 50px;
+    font-size: 2rem;
+    text-align: center;
+    margin-right: 1rem;
+}
