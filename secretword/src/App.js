@@ -29,8 +29,8 @@ function App () {
    const [score, setScore] = useState(0);  
  
    // console.log(guessedLetters);
-    console.log(letters);
-    console.log(words);
+   // console.log(letters);
+   // console.log(words);
 
    const pickWordAndCategory = () => {
     // pick random category... 
@@ -47,6 +47,8 @@ function App () {
     return {word,category}; 
    };   
 
+ console.log(letters); 
+
   // start the secret word game     
   const startGame = () => {
    // pick word and pick category
@@ -58,7 +60,7 @@ function App () {
       wordLetters = wordLetters.map( (i)=> i.toLowerCase()); 
      
    //   console.log(word, category);
-     console.log(wordLetters);
+     //console.log(wordLetters,'oi');
 
     // fill states 
     setPickedWord(word); 
@@ -67,8 +69,8 @@ function App () {
     setgameStage(stage[1].name); 
   };    
   // process the latter input
-  const verifyLetter = () => {
-    setgameStage(stage[2].name); 
+  const verifyLetter = (letter) => {
+    console.log(letter); 
   };     
   // retarts the game 
   const retry = () => {
