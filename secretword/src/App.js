@@ -23,7 +23,7 @@ function App () {
    const [pickedCategory, setPickedCategory] = useState(""); 
    const [letters, setLetters] = useState([]); 
 
-   const [guessedLetters, setGuessedLetters] = useState([1,2,3]);
+   const [guessedLetters, setGuessedLetters] = useState([]);
    const [wrongLetters, setWrongLetters] = useState([]); 
    const [guesses, setGuesses] = useState(3);
    const [score, setScore] = useState(0);  
@@ -47,7 +47,7 @@ function App () {
     return {word,category}; 
    };   
 
- console.log(letters); 
+// console.log(letters); 
 
   // start the secret word game     
   const startGame = () => {
@@ -70,8 +70,33 @@ function App () {
   };    
   // process the latter input
   const verifyLetter = (letter) => {
-    console.log(letter); 
-  };     
+    
+   // precisa da letra maiuscula 
+   const normalizeLetter = letter.toLowerCase(); 
+  // check if letter has already been ultilized 
+
+   if (guessedLetters.includes(normalizeLetter) 
+   || wrongLetters.includes(normalizeLetter)) {
+     return;       
+   } 
+   
+   // push guessed letter or remove a guess 
+   if (letter.includes(normalizeLetter)) {
+      setGuessedLetters( (actualGuessedLetters) => [
+        ...actualGuessedLetters,
+        normalizeLetter
+     ])
+   } else {
+      setGuessedLetters( (actualWrongLetters) => [
+      ...actualWrongLetters,
+      normalizeLetter, 
+   ])
+   }
+  };
+  
+  console.log(guessedLetters);
+  console.log(wrongLetters);  
+
   // retarts the game 
   const retry = () => {
     setgameStage(stage[0].name); 
@@ -97,4 +122,3 @@ function App () {
 }
 
 export default App;
-
